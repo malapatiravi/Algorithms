@@ -32,6 +32,7 @@ private:
     bool heap_type;
     int maxSize = Size;
 };
+
 template <typename KeyType, typename StructType, int Size>
 bool Heap<KeyType, StructType, Size>::Compare(KeyType key1, KeyType key2)
 {
@@ -68,8 +69,7 @@ void Heap<KeyType, StructType, Size>::Push(StructType data)
     if (heapSize >= maxSize)
     {
         buffers_[maxSize - 1] = data;
-
-        //Log error
+        return;
     }
 
     heapSize++;
@@ -212,6 +212,11 @@ template <typename KeyType, typename StructType, int Size>
 int Heap<KeyType, StructType, Size>::GetSize()
 {
     return heapSize;
+}
+template <typename KeyType, typename StructType, int Size>
+void Heap<KeyType, StructType, Size>::Clear()
+{
+    heapSize = 0;
 }
 // template <typename KeyType, typename StructType, int Size>
 // void Heap<KeyType, StructType, Size>::MaxHeapify(int it)
