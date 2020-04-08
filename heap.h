@@ -154,27 +154,27 @@ void Heap<KeyType, StructType, Size>::Heapify(int it)
 {
     int left_i = left(it);   // Left iterator
     int right_i = right(it); // Right iterator
-    int smallest = it;       //smallest iterator
+    int selected = it;       //smallest iterator
     bool initial = true;     // initial stage
-    while (initial == true || smallest != it)
+    while (initial == true || selected != it)
     {
         initial = false;
-        it = smallest;
+        it = selected;
         left_i = left(it);
         right_i = right(it);
 
-        if ((left_i < heapSize) && Compare(buffers_[left_i].first, buffers_[smallest].first))
+        if ((left_i < heapSize) && Compare(buffers_[left_i].first, buffers_[selected].first))
         {
-            smallest = left_i;
+            selected = left_i;
         }
-        if ((right_i < heapSize) && Compare(buffers_[right_i].first, buffers_[smallest].first))
+        if ((right_i < heapSize) && Compare(buffers_[right_i].first, buffers_[selected].first))
         {
-            smallest = right_i;
+            selected = right_i;
         }
 
-        if (smallest != it)
+        if (selected != it)
         {
-            swap(smallest, it);
+            swap(selected, it);
         }
     }
 }
@@ -184,21 +184,21 @@ void Heap<KeyType, StructType, Size>::HeapifyRecur(int it)
 {
     int left_i = left(it);   // Left iterator
     int right_i = right(it); // Right iterator
-    int smallest = it;       //smallest iterator
+    int selected = it;       //smallest iterator
 
-    if ((left_i < heapSize) && Compare(buffers_[left_i].first, buffers_[smallest].first))
+    if ((left_i < heapSize) && Compare(buffers_[left_i].first, buffers_[selected].first))
     {
-        smallest = left_i;
+        selected = left_i;
     }
-    if ((right_i < heapSize) && Compare(buffers_[right_i].first, buffers_[smallest].first))
+    if ((right_i < heapSize) && Compare(buffers_[right_i].first, buffers_[selected].first))
     {
-        smallest = right_i;
+        selected = right_i;
     }
 
-    if (smallest != it)
+    if (selected != it)
     {
-        swap(smallest, it);
-        HeapifyRecur(smallest);
+        swap(selected, it);
+        HeapifyRecur(selected);
     }
 }
 
