@@ -74,7 +74,7 @@ int main()
         data.push_back(i);
     }
 
-    quickSort(data, 0, data.size() - 1);
+    quickSortRecur(data, 0, data.size() - 1);
     for (int i = 0; i < data.size(); i++)
     {
         std::cout << data[i] << "==>";
