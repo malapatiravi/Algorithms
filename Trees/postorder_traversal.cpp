@@ -16,29 +16,26 @@ struct TreeNode
 class Solution
 {
 public:
-    vector<int> postorderTraversal(TreeNode *root)
+    std::vector<int> postorderTraversal(TreeNode *root)
     {
-        vector<int> post;
+        std::stack<TreeNode *> st;
+        st.push(root);
+        std::vector<int> res;
         if (!root)
         {
-            return post;
+            return res;
         }
-        stack<TreeNode *> s;
-        s.push(root);
-        TreeNode *curr;
-        while (1)
+        while (!st.empty())
         {
-            if (s.empty())
-                break;
-            curr = s.top();
-            s.pop();
-            post.push_back(curr->val);
-            if (curr->left)
-                s.push(curr->left);
-            if (curr->right)
-                s.push(curr->right);
+            root = st.top();
+            st.pop();
+            if (root->left)
+                st.push(root->left);
+            if (root->right)
+                st.push(root->right);
+            res.push_back(root->val);
         }
-        reverse(post.begin(), post.end());
-        return post;
+        std::reverse(res.begin(), res.end());
+        return res;
     }
 };
