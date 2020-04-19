@@ -42,7 +42,6 @@ void quickSortRecur(std::vector<int> &nums, int left, int right)
             quickSortRecur(nums, left, P2);
             quickSortRecur(nums, P2 + 1, right);
         }
-        
     }
     else if (right - left > 0)
     {
@@ -57,6 +56,39 @@ void quickSortRecur(std::vector<int> &nums, int left, int right)
         return;
     }
 }
+
+void QuickSort(std::vector<int> &nums, int left, int right)
+{
+    int piv_ind = left + (right - left) / 2;
+    int piv_val = nums[piv_ind];
+    int l = left, r = right;
+    while (l < r)
+    {
+        while (nums[l] < piv_val)
+        {
+            l++;
+        }
+        while (nums[r] > piv_val)
+        {
+            r--;
+        }
+        if (l <= r)
+        {
+            std::swap(nums[l], nums[r]);
+            l++;
+            r--;
+        }
+    }
+    if (left < r)
+    {
+        QuickSort(nums, left, r);
+    }
+    if (right > l)
+    {
+        QuickSort(nums, l, right);
+    }
+}
+
 // int main()
 // {
 //     std::vector<int> data;
@@ -88,7 +120,7 @@ int main()
     {
         nums.push_back(i);
     }
-    quickSortRecur(nums, 0, nums.size() - 1);
+    QuickSort(nums, 0, nums.size() - 1);
     for (int i = 0; i < nums.size(); i++)
     {
         std::cout << nums[i] << "-->";
