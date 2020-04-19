@@ -57,26 +57,41 @@ void quickSortRecur(std::vector<int> &nums, int left, int right)
         return;
     }
 }
+// int main()
+// {
+//     std::vector<int> data;
+//     for (int i = 100; i > 0; i--)
+//     {
+//         data.push_back(i);
+//     }
+//     // for (int i = 50; i > 0; i--)
+//     // {
+//     //     data.push_back(i);
+//     // }
+//     data.push_back(10);
+//     data.push_back(9);
+//     data.push_back(8);
+//     data.push_back(7);
+//     data.push_back(6);
+//     quickSortRecur(data, 0, data.size() - 1);
+//     for (int i = 0; i < data.size(); i++)
+//     {
+//         std::cout << data[i] << "==>";
+//     }
+//     std::cout << std::endl;
+// }
+
 int main()
 {
-    std::vector<int> data;
+    std::vector<int> nums;
     for (int i = 100; i > 0; i--)
     {
-        data.push_back(i);
+        nums.push_back(i);
     }
-    // for (int i = 50; i > 0; i--)
-    // {
-    //     data.push_back(i);
-    // }
-    data.push_back(10);
-    data.push_back(9);
-    data.push_back(8);
-    data.push_back(7);
-    data.push_back(6);
-    quickSortRecur(data, 0, data.size() - 1);
-    for (int i = 0; i < data.size(); i++)
+    quickSortRecur(nums, 0, nums.size() - 1);
+    for (int i = 0; i < nums.size(); i++)
     {
-        std::cout << data[i] << "==>";
+        std::cout << nums[i] << "-->";
     }
     std::cout << std::endl;
 }
