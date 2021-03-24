@@ -1,29 +1,45 @@
 
 #include "ring_buffer.h"
-
+#include "circular_buffer.h"
 
 
 int main()
 {
-    RingBuffer<int> rb(10);
+    RingBuffer<int> rb(2);
+    std::cout<<"Buffer size is: "<<rb.Size()<<std::endl;
     rb.Push(10);
-    rb.Push(9);
-    rb.Push(8);
-    rb.Push(7);
-    rb.Push(6);
-    rb.Push(5);
-    rb.Push(4);
-    rb.Push(3);
-    rb.Push(2);
-    rb.Push(1);
-    rb.printQ();
-    rb.Push(-1);
-    rb.Push(-2);
-    rb.Push(-3);
-    rb.printQ();
+    std::cout<<"Buffer size is: "<<rb.Size()<<std::endl;
+    rb.Push(20);
+    std::cout<<"Buffer size is: "<<rb.Size()<<std::endl;
     rb.Pop();
+    std::cout<<"Buffer size is: "<<rb.Size()<<std::endl;
     rb.Pop();
-    rb.Pop();
-    rb.Pop();
-    rb.printQ();
+    std::cout<<"Buffer size is: "<<rb.Size()<<std::endl;
+
+    // Circular_Buffer<int> cb(1);
+    // std::cout<<"Is Full: "<<cb.is_full()<<std::endl;
+    // std::cout<<"Is Empty: "<<cb.is_empty()<<std::endl;
+    // std::cout<<"Buffer size is: "<<cb.size()<<std::endl;
+    // cb.enqueue(10);
+    // std::cout<<"Is Full: "<<cb.is_full()<<std::endl;
+    // std::cout<<"Is Empty: "<<cb.is_empty()<<std::endl;
+    // std::cout<<"Buffer size is: "<<cb.size()<<std::endl;
+
+    // cb.enqueue(40);
+    // std::cout<<"Is Full: "<<cb.is_full()<<std::endl;
+    // std::cout<<"Is Empty: "<<cb.is_empty()<<std::endl;
+    // std::cout<<"Buffer size is: "<<cb.size()<<std::endl;
+    // cb.enqueue(45);
+    // std::cout<<"Is Full: "<<cb.is_full()<<std::endl;
+    // std::cout<<"Is Empty: "<<cb.is_empty()<<std::endl;
+    // std::cout<<"Buffer size is: "<<cb.size()<<std::endl;
+    // cb.enqueue(46);
+    // std::cout<<"Is Full: "<<cb.is_full()<<std::endl;
+    // std::cout<<"Is Empty: "<<cb.is_empty()<<std::endl;
+    // std::cout<<"Buffer size is: "<<cb.size()<<std::endl;
+    // cb.enqueue(47);
+    // std::cout<<"Is Full: "<<cb.is_full()<<std::endl;
+    // std::cout<<"Is Empty: "<<cb.is_empty()<<std::endl;
+    // std::cout<<"Buffer size is: "<<cb.size()<<std::endl;
+
 }
